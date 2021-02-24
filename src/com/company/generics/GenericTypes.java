@@ -1,5 +1,21 @@
 package com.company.generics;
 
+
+/*
+* Generic Types
+*   A Simple Box Class
+*   A Generic Version of the Box Class
+*       non-primitive type
+*   Type Parameter Naming Conventions
+*   Invoking and Instantiating a Generic Type
+*       parameterized type
+*   The Diamond
+*       type inference
+*   Multiple Type Parameters
+*       autoboxing
+*   Parameterized Types
+* */
+
 /* v1 */
 //interface Pair {
 //    public String getKey();
@@ -139,8 +155,7 @@ class Util {
                p1.getValue().equals(p2.getValue());
     }
 }
-
-public class OrderedPair extends Util {
+class OrderedPair extends Util {
     public static void main(String... args) {
         Pair<Integer, String> p1 = new Pair<>(1, "apple");
         Pair<Integer, String> p2 = new Pair<>(2, "pear");
@@ -150,3 +165,4 @@ public class OrderedPair extends Util {
         System.out.println(same);
     }
 }
+public class GenericTypes {}

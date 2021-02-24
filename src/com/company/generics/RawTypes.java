@@ -3,14 +3,20 @@ package com.company.generics;
 import javax.swing.*;
 
 
+/*
+* Raw Types
+* Unchecked Error Messages
+* */
+
 class Box<T> {
     private T i;
     public void set(T t) {
         i = t;
     }
 }
+class RawTypes {
 
-public class WarningDemo {
+    class WarningDemo {}
     public static void main(String[] args) {
         /* 1 no warning */
         Box<String> stringBox = new Box<>();
@@ -29,3 +35,4 @@ public class WarningDemo {
         return new Box();
     }
 }
+
