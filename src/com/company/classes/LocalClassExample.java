@@ -1,24 +1,39 @@
+package com.company.classes;
+
 public class LocalClassExample {
 
+    // access levels - no modifier: package-private
     static String regularExpression = "[^0-9]";
 
-    public static void validatePhoneNumber(
-            String phoneNumber1, String phoneNumber2) {
-
+    // method definition
+    public static void validatePhoneNumber(String phoneNumber1, String phoneNumber2) {
+        // final: never change
         final int numberLength = 10;
 
         // Valid in JDK 8 and later:
 
         // int numberLength = 10;
 
+        /* non-static nested class: inner class: local class */
+        /*
+        * Local classes are classes that are defined in a block,
+        * which is a group of zero or more statements between balanced braces.
+        * You typically find local classes defined in the body of a method.
+        * */
         class PhoneNumber {
 
             String formattedPhoneNumber = null;
 
+            /* constructor */
             PhoneNumber(String phoneNumber){
+                /* "local variables referenced from an inner class must be final or effectively final"  */
                 // numberLength = 7;
                 String currentNumber = phoneNumber.replaceAll(
                         regularExpression, "");
+                /*
+                * a local class can only access local variables that are declared final.
+                * When a local class accesses a local variable or parameter of the enclosing block, it captures that variable or parameter.
+                * */
                 if (currentNumber.length() == numberLength)
                     formattedPhoneNumber = currentNumber;
                 else
@@ -31,10 +46,10 @@ public class LocalClassExample {
 
             // Valid in JDK 8 and later:
 
-//            public void printOriginalNumbers() {
-//                System.out.println("Original numbers are " + phoneNumber1 +
-//                    " and " + phoneNumber2);
-//            }
+            public void printOriginalNumbers() {
+                System.out.println("Original numbers are " + phoneNumber1 +
+                    " and " + phoneNumber2);
+            }
         }
 
         PhoneNumber myNumber1 = new PhoneNumber(phoneNumber1);
