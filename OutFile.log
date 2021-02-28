@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-02-28T22:03:38</date>
+  <millis>1614521018123</millis>
+  <sequence>0</sequence>
+  <logger>package.name</logger>
+  <level>WARNING</level>
+  <class>com.company.EssentialJavaClasses.exceptions.HowToThrowExceptions.ChainedExceptions</class>
+  <method>loggingAPI</method>
+  <thread>1</thread>
+  <message>open0</message>
+</record>
+<record>
+  <date>2021-02-28T22:03:38</date>
+  <millis>1614521018149</millis>
+  <sequence>1</sequence>
+  <logger>package.name</logger>
+  <level>WARNING</level>
+  <class>com.company.EssentialJavaClasses.exceptions.HowToThrowExceptions.ChainedExceptions</class>
+  <method>loggingAPI</method>
+  <thread>1</thread>
+  <message>open</message>
+</record>
+<record>
+  <date>2021-02-28T22:03:38</date>
+  <millis>1614521018150</millis>
+  <sequence>2</sequence>
+  <logger>package.name</logger>
+  <level>WARNING</level>
+  <class>com.company.EssentialJavaClasses.exceptions.HowToThrowExceptions.ChainedExceptions</class>
+  <method>loggingAPI</method>
+  <thread>1</thread>
+  <message>&lt;init&gt;</message>
+</record>
+<record>
+  <date>2021-02-28T22:03:38</date>
+  <millis>1614521018152</millis>
+  <sequence>3</sequence>
+  <logger>package.name</logger>
+  <level>WARNING</level>
+  <class>com.company.EssentialJavaClasses.exceptions.HowToThrowExceptions.ChainedExceptions</class>
+  <method>loggingAPI</method>
+  <thread>1</thread>
+  <message>&lt;init&gt;</message>
+</record>
+<record>
+  <date>2021-02-28T22:03:38</date>
+  <millis>1614521018152</millis>
+  <sequence>4</sequence>
+  <logger>package.name</logger>
+  <level>WARNING</level>
+  <class>com.company.EssentialJavaClasses.exceptions.HowToThrowExceptions.ChainedExceptions</class>
+  <method>loggingAPI</method>
+  <thread>1</thread>
+  <message>&lt;init&gt;</message>
+</record>
+<record>
+  <date>2021-02-28T22:03:38</date>
+  <millis>1614521018153</millis>
+  <sequence>5</sequence>
+  <logger>package.name</logger>
+  <level>WARNING</level>
+  <class>com.company.EssentialJavaClasses.exceptions.HowToThrowExceptions.ChainedExceptions</class>
+  <method>loggingAPI</method>
+  <thread>1</thread>
+  <message>loggingAPI</message>
+</record>
+<record>
+  <date>2021-02-28T22:03:38</date>
+  <millis>1614521018153</millis>
+  <sequence>6</sequence>
+  <logger>package.name</logger>
+  <level>WARNING</level>
+  <class>com.company.EssentialJavaClasses.exceptions.HowToThrowExceptions.ChainedExceptions</class>
+  <method>loggingAPI</method>
+  <thread>1</thread>
+  <message>main</message>
+</record>
+</log>
