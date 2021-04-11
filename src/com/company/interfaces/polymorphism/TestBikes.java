@@ -1,7 +1,7 @@
 package com.company.interfaces.polymorphism;
 
 public class TestBikes {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Bicycle bike01, bike02, bike03;
 
         bike01 = new Bicycle(20, 10, 1);

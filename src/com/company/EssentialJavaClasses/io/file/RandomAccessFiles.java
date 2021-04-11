@@ -48,7 +48,6 @@ public class RandomAccessFiles {
  * */
 
 
-
 class RandomAccessFilesClass {
     static final String dataFile = "out.txt";
     static final Path file = Paths.get(dataFile);
@@ -139,7 +138,7 @@ class RandomAccessFilesClass {
             // the end of the file.  Then write "I was here!" again.
             long length = fc.size();
 //            System.out.printf("length: %s%n", length);
-            fc.position(length-1);
+            fc.position(length - 1);
 //            System.out.printf("%s%n", fc.position());
 //            System.out.printf("copy: %s%n", copy);
 //            System.out.printf(

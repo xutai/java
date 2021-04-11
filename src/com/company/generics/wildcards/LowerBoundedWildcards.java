@@ -11,6 +11,7 @@ public class LowerBoundedWildcards {
 //            list.add(1.1);
         }
     }
+
     static void listHandler() {
         /* exception, asList is a fixed sized, cannot use add to dynamically add */
 //        List<Integer> list = Arrays.asList(1, 2, 3);
@@ -20,10 +21,11 @@ public class LowerBoundedWildcards {
         addNumbers(list);
 //        addNumbers(list2);
 //        addNumbers(list3);
-        for (int i: list) {
+        for (int i : list) {
             System.out.printf("%s", i);
         }
     }
+
     public static void main(String[] args) {
         listHandler();
     }

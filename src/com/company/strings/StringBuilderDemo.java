@@ -1,7 +1,7 @@
 package com.company.strings;
 
 
-public class StringBuilderDemo extends StringDemo{
+public class StringBuilderDemo extends StringDemo {
     public static void main(String[] args) {
         String palindrome = "Dot saw I was Tod";
 
@@ -21,6 +21,7 @@ class A {
         System.out.println("a");
     }
 }
+
 class B extends A {
     void main() {
 //        System.out.println("b");

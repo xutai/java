@@ -26,14 +26,14 @@ public class TheCatchBlocks {
 //            System.err.println("Default Exception: " + e.getMessage());
 //        }
 
-        /* Catching More Than One Type of Exception with One Exception Handler */
-        catch (IndexOutOfBoundsException|IOException ex) {
+        /* Catching More Than One Type of Exception with One Exception Handler */ catch (IndexOutOfBoundsException | IOException ex) {
             System.err.println("Default Exception: " + ex);
 //            logger.log(ex);
 //            throw ex;
         }
 
     }
+
     public static void main(String[] args) {
         new TheCatchBlocks().writeList();
     }

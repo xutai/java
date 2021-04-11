@@ -44,96 +44,96 @@ import java.sql.Statement;
 
 
 public class JoinSample {
-  
-  Connection con;
-  JDBCTutorialUtilities settings;  
-  
-  public JoinSample(Connection connArg, JDBCTutorialUtilities settingsArg) {
-    this.con = connArg;
-    this.settings = settingsArg;
-  }
 
-  public static void getCoffeesBoughtBySupplier(String supplierName,
-                                                Connection con) throws SQLException {
-    String query = "SELECT COFFEES.COF_NAME FROM COFFEES, SUPPLIERS " +
-      "WHERE SUPPLIERS.SUP_NAME LIKE ? and SUPPLIERS.SUP_ID = COFFEES.SUP_ID";
+    Connection con;
+    JDBCTutorialUtilities settings;
 
-    try (PreparedStatement ps = con.prepareStatement(query)) {
-      ps.setString(1, supplierName);
-      ResultSet rs = ps.executeQuery();
-      System.out.println("Coffees bought from " + supplierName + ": ");
-      while (rs.next()) {
-        String coffeeName = rs.getString(1);
-        System.out.println("     " + coffeeName);
-      }
-    } catch (SQLException e) {
-      JDBCTutorialUtilities.printSQLException(e);
-    } 
-  }
-  
-  public void testJoinRowSet(String supplierName) throws SQLException {
-    RowSetFactory factory = RowSetProvider.newFactory();  
-    try (CachedRowSet coffees = factory.createCachedRowSet();
-         CachedRowSet suppliers = factory.createCachedRowSet();
-         JoinRowSet jrs = factory.createJoinRowSet()) {
-      coffees.setCommand("SELECT * FROM COFFEES");
-      coffees.setUsername(settings.userName);
-      coffees.setPassword(settings.password);
-      coffees.setUrl(settings.urlString);
-      coffees.execute();
-      
-      suppliers.setCommand("SELECT * FROM SUPPLIERS");
-      suppliers.setUsername(settings.userName);
-      suppliers.setPassword(settings.password);
-      suppliers.setUrl(settings.urlString);
-      suppliers.execute();      
+    public JoinSample(Connection connArg, JDBCTutorialUtilities settingsArg) {
+        this.con = connArg;
+        this.settings = settingsArg;
+    }
 
-      jrs.addRowSet(coffees, "SUP_ID");
-      jrs.addRowSet(suppliers, "SUP_ID");
-      
-      System.out.println("Coffees bought from " + supplierName + ": ");
-      while (jrs.next()) {
-        if (jrs.getString("SUP_NAME").equals(supplierName)) { 
-          String coffeeName = jrs.getString(1);
-          System.out.println("     " + coffeeName);
+    public static void getCoffeesBoughtBySupplier(String supplierName,
+                                                  Connection con) throws SQLException {
+        String query = "SELECT COFFEES.COF_NAME FROM COFFEES, SUPPLIERS " +
+                "WHERE SUPPLIERS.SUP_NAME LIKE ? and SUPPLIERS.SUP_ID = COFFEES.SUP_ID";
+
+        try (PreparedStatement ps = con.prepareStatement(query)) {
+            ps.setString(1, supplierName);
+            ResultSet rs = ps.executeQuery();
+            System.out.println("Coffees bought from " + supplierName + ": ");
+            while (rs.next()) {
+                String coffeeName = rs.getString(1);
+                System.out.println("     " + coffeeName);
+            }
+        } catch (SQLException e) {
+            JDBCTutorialUtilities.printSQLException(e);
         }
-      }
-    } catch (SQLException e) {
-      JDBCTutorialUtilities.printSQLException(e);
-    }
-  }
-
-
-  public static void main(String[] args) {
-    JDBCTutorialUtilities myJDBCTutorialUtilities;
-    Connection myConnection = null;
-    if (args[0] == null) {
-      System.err.println("Properties file not specified at command line");
-      return;
-    } else {
-      try {
-        myJDBCTutorialUtilities = new JDBCTutorialUtilities(args[0]);
-      } catch (Exception e) {
-        System.err.println("Problem reading properties file " + args[0]);
-        e.printStackTrace();
-        return;
-      }
     }
 
-    try {
-      myConnection = myJDBCTutorialUtilities.getConnection();
+    public void testJoinRowSet(String supplierName) throws SQLException {
+        RowSetFactory factory = RowSetProvider.newFactory();
+        try (CachedRowSet coffees = factory.createCachedRowSet();
+             CachedRowSet suppliers = factory.createCachedRowSet();
+             JoinRowSet jrs = factory.createJoinRowSet()) {
+            coffees.setCommand("SELECT * FROM COFFEES");
+            coffees.setUsername(settings.userName);
+            coffees.setPassword(settings.password);
+            coffees.setUrl(settings.urlString);
+            coffees.execute();
 
-      System.out.println("\nCoffees bought by each supplier:");
-      JoinSample.getCoffeesBoughtBySupplier("Acme, Inc.", myConnection);
+            suppliers.setCommand("SELECT * FROM SUPPLIERS");
+            suppliers.setUsername(settings.userName);
+            suppliers.setPassword(settings.password);
+            suppliers.setUrl(settings.urlString);
+            suppliers.execute();
 
-      System.out.println("\nUsing JoinRowSet:");
-      JoinSample myJoinSample = new JoinSample(myConnection, myJDBCTutorialUtilities);
-      myJoinSample.testJoinRowSet("Acme, Inc.");
+            jrs.addRowSet(coffees, "SUP_ID");
+            jrs.addRowSet(suppliers, "SUP_ID");
 
-    } catch (SQLException e) {
-      JDBCTutorialUtilities.printSQLException(e);
-    } finally {
-      JDBCTutorialUtilities.closeConnection(myConnection);
+            System.out.println("Coffees bought from " + supplierName + ": ");
+            while (jrs.next()) {
+                if (jrs.getString("SUP_NAME").equals(supplierName)) {
+                    String coffeeName = jrs.getString(1);
+                    System.out.println("     " + coffeeName);
+                }
+            }
+        } catch (SQLException e) {
+            JDBCTutorialUtilities.printSQLException(e);
+        }
     }
-  }
+
+
+    public static void main(String[] args) {
+        JDBCTutorialUtilities myJDBCTutorialUtilities;
+        Connection myConnection = null;
+        if (args[0] == null) {
+            System.err.println("Properties file not specified at command line");
+            return;
+        } else {
+            try {
+                myJDBCTutorialUtilities = new JDBCTutorialUtilities(args[0]);
+            } catch (Exception e) {
+                System.err.println("Problem reading properties file " + args[0]);
+                e.printStackTrace();
+                return;
+            }
+        }
+
+        try {
+            myConnection = myJDBCTutorialUtilities.getConnection();
+
+            System.out.println("\nCoffees bought by each supplier:");
+            JoinSample.getCoffeesBoughtBySupplier("Acme, Inc.", myConnection);
+
+            System.out.println("\nUsing JoinRowSet:");
+            JoinSample myJoinSample = new JoinSample(myConnection, myJDBCTutorialUtilities);
+            myJoinSample.testJoinRowSet("Acme, Inc.");
+
+        } catch (SQLException e) {
+            JDBCTutorialUtilities.printSQLException(e);
+        } finally {
+            JDBCTutorialUtilities.closeConnection(myConnection);
+        }
+    }
 }

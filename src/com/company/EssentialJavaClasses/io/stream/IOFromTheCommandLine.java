@@ -23,13 +23,13 @@ class Password {
         }
 
         String login = c.readLine("Enter your login: ");
-        char [] oldPassword = c.readPassword("Enter your old password: ");
+        char[] oldPassword = c.readPassword("Enter your old password: ");
 
         if (verify(login, oldPassword)) {
             boolean noMatch;
             do {
-                char [] newPassword1 =  c.readPassword("Enter your new password: ");
-                char [] newPassword2 = c.readPassword("Enter new password again: ");
+                char[] newPassword1 = c.readPassword("Enter your new password: ");
+                char[] newPassword2 = c.readPassword("Enter new password again: ");
                 noMatch = !Arrays.equals(newPassword1, newPassword2);
                 if (noMatch) {
                     c.format("Password don't match. Try again.%n");
@@ -44,8 +44,10 @@ class Password {
         Arrays.fill(oldPassword, ' ');
     }
 
-    static Boolean verify (String login, char[] oldPassword) {
+    static Boolean verify(String login, char[] oldPassword) {
         return true;
     }
-    static void change(String login, char[] password) {}
+
+    static void change(String login, char[] password) {
+    }
 }

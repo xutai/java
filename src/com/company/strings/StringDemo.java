@@ -5,12 +5,13 @@ import java.text.Format;
 class StringDemoCreatingStrings {
     public static void main(String[] args) {
         String greeting = "Hello world!";
-        char[] helloArray = { 'h', 'e', 'l', 'l', 'o', '.' };
+        char[] helloArray = {'h', 'e', 'l', 'l', 'o', '.'};
         String helloString = new String(helloArray);
         System.out.println(helloString);
     }
 }
- class StringDemo {
+
+class StringDemo {
     public static void main(String[] args) {
         String palindrome = "Dot saw I was Tod";
         int len = palindrome.length();
@@ -35,6 +36,7 @@ class StringDemoCreatingStrings {
         System.out.println(reversePalindrome);
     }
 }
+
 class StringDemoConcatenatingStrings {
     public static void main(String[] args) {
         String string1 = "a";

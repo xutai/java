@@ -46,116 +46,115 @@ import javax.sql.rowset.JdbcRowSet;
 
 public class JdbcRowSetSample {
 
-  private String dbName;
-  private Connection con;
-  private String dbms;
-  private JDBCTutorialUtilities settings;
+    private String dbName;
+    private Connection con;
+    private String dbms;
+    private JDBCTutorialUtilities settings;
 
-  public JdbcRowSetSample(Connection connArg,
-                          JDBCTutorialUtilities settingsArg) {
-    super();
-    this.con = connArg;
-    this.dbName = settingsArg.dbName;
-    this.dbms = settingsArg.dbms;
-    this.settings = settingsArg;
-  }
-
-  public void testJdbcRowSet() throws SQLException {
-
-    RowSetFactory factory = RowSetProvider.newFactory();
-
-    try (JdbcRowSet jdbcRs = factory.createJdbcRowSet()) {
-      jdbcRs.setUrl(this.settings.urlString);
-      jdbcRs.setUsername(this.settings.userName);
-      jdbcRs.setPassword(this.settings.password);
-      jdbcRs.setCommand("select * from COFFEES");
-      jdbcRs.execute();
-      jdbcRs.absolute(3);
-      jdbcRs.updateFloat("PRICE", 10.99f);
-      jdbcRs.updateRow();
-
-      System.out.println("\nAfter updating the third row:");
-      CoffeesTable.viewTable(con);
-
-      jdbcRs.moveToInsertRow();
-      jdbcRs.updateString("COF_NAME", "HouseBlend");
-      jdbcRs.updateInt("SUP_ID", 49);
-      jdbcRs.updateFloat("PRICE", 7.99f);
-      jdbcRs.updateInt("SALES", 0);
-      jdbcRs.updateInt("TOTAL", 0);
-      jdbcRs.insertRow();
-
-      jdbcRs.moveToInsertRow();
-      jdbcRs.updateString("COF_NAME", "HouseDecaf");
-      jdbcRs.updateInt("SUP_ID", 49);
-      jdbcRs.updateFloat("PRICE", 8.99f);
-      jdbcRs.updateInt("SALES", 0);
-      jdbcRs.updateInt("TOTAL", 0);
-      jdbcRs.insertRow();
-
-      System.out.println("\nAfter inserting two rows:");
-      CoffeesTable.viewTable(con);
-
-      jdbcRs.last();
-      jdbcRs.deleteRow();
-
-      System.out.println("\nAfter deleting last row:");
-      CoffeesTable.viewTable(con);
-
-
-    } catch (SQLException e) {
-      JDBCTutorialUtilities.printSQLException(e);
-    }
-    finally {
-      this.con.setAutoCommit(false);
-    }
-  }
-  
-  private void outputRowSet(RowSet rs) throws SQLException {
-    rs.beforeFirst();
-    while (rs.next()) {
-      String coffeeName = rs.getString(1);
-      int supplierID = rs.getInt(2);
-      float price = rs.getFloat(3);
-      int sales = rs.getInt(4);
-      int total = rs.getInt(5);
-      System.out.println(coffeeName + ", " + supplierID + ", " + price +
-                         ", " + sales + ", " + total);
-      
-    }
-  }
-
-  public static void main(String[] args) {
-    JDBCTutorialUtilities myJDBCTutorialUtilities;
-    Connection myConnection = null;
-
-    if (args[0] == null) {
-      System.err.println("Properties file not specified at command line");
-      return;
-    } else {
-      try {
-        myJDBCTutorialUtilities = new JDBCTutorialUtilities(args[0]);
-      } catch (Exception e) {
-        System.err.println("Problem reading properties file " + args[0]);
-        e.printStackTrace();
-        return;
-      }
+    public JdbcRowSetSample(Connection connArg,
+                            JDBCTutorialUtilities settingsArg) {
+        super();
+        this.con = connArg;
+        this.dbName = settingsArg.dbName;
+        this.dbms = settingsArg.dbms;
+        this.settings = settingsArg;
     }
 
-    try {
-      myConnection = myJDBCTutorialUtilities.getConnection();
+    public void testJdbcRowSet() throws SQLException {
 
-      JdbcRowSetSample myJdbcRowSetSample =
-        new JdbcRowSetSample(myConnection, myJDBCTutorialUtilities);
-      myJdbcRowSetSample.testJdbcRowSet();
+        RowSetFactory factory = RowSetProvider.newFactory();
+
+        try (JdbcRowSet jdbcRs = factory.createJdbcRowSet()) {
+            jdbcRs.setUrl(this.settings.urlString);
+            jdbcRs.setUsername(this.settings.userName);
+            jdbcRs.setPassword(this.settings.password);
+            jdbcRs.setCommand("select * from COFFEES");
+            jdbcRs.execute();
+            jdbcRs.absolute(3);
+            jdbcRs.updateFloat("PRICE", 10.99f);
+            jdbcRs.updateRow();
+
+            System.out.println("\nAfter updating the third row:");
+            CoffeesTable.viewTable(con);
+
+            jdbcRs.moveToInsertRow();
+            jdbcRs.updateString("COF_NAME", "HouseBlend");
+            jdbcRs.updateInt("SUP_ID", 49);
+            jdbcRs.updateFloat("PRICE", 7.99f);
+            jdbcRs.updateInt("SALES", 0);
+            jdbcRs.updateInt("TOTAL", 0);
+            jdbcRs.insertRow();
+
+            jdbcRs.moveToInsertRow();
+            jdbcRs.updateString("COF_NAME", "HouseDecaf");
+            jdbcRs.updateInt("SUP_ID", 49);
+            jdbcRs.updateFloat("PRICE", 8.99f);
+            jdbcRs.updateInt("SALES", 0);
+            jdbcRs.updateInt("TOTAL", 0);
+            jdbcRs.insertRow();
+
+            System.out.println("\nAfter inserting two rows:");
+            CoffeesTable.viewTable(con);
+
+            jdbcRs.last();
+            jdbcRs.deleteRow();
+
+            System.out.println("\nAfter deleting last row:");
+            CoffeesTable.viewTable(con);
 
 
-    } catch (SQLException e) {
-      JDBCTutorialUtilities.printSQLException(e);
-    } finally {
-      JDBCTutorialUtilities.closeConnection(myConnection);
+        } catch (SQLException e) {
+            JDBCTutorialUtilities.printSQLException(e);
+        } finally {
+            this.con.setAutoCommit(false);
+        }
     }
 
-  }
+    private void outputRowSet(RowSet rs) throws SQLException {
+        rs.beforeFirst();
+        while (rs.next()) {
+            String coffeeName = rs.getString(1);
+            int supplierID = rs.getInt(2);
+            float price = rs.getFloat(3);
+            int sales = rs.getInt(4);
+            int total = rs.getInt(5);
+            System.out.println(coffeeName + ", " + supplierID + ", " + price +
+                    ", " + sales + ", " + total);
+
+        }
+    }
+
+    public static void main(String[] args) {
+        JDBCTutorialUtilities myJDBCTutorialUtilities;
+        Connection myConnection = null;
+
+        if (args[0] == null) {
+            System.err.println("Properties file not specified at command line");
+            return;
+        } else {
+            try {
+                myJDBCTutorialUtilities = new JDBCTutorialUtilities(args[0]);
+            } catch (Exception e) {
+                System.err.println("Problem reading properties file " + args[0]);
+                e.printStackTrace();
+                return;
+            }
+        }
+
+        try {
+            myConnection = myJDBCTutorialUtilities.getConnection();
+
+            JdbcRowSetSample myJdbcRowSetSample =
+                    new JdbcRowSetSample(myConnection, myJDBCTutorialUtilities);
+            myJdbcRowSetSample.testJdbcRowSet();
+
+
+        } catch (SQLException e) {
+            JDBCTutorialUtilities.printSQLException(e);
+        } finally {
+            JDBCTutorialUtilities.closeConnection(myConnection);
+        }
+
+    }
 
 }

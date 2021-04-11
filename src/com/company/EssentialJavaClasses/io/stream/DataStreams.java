@@ -16,8 +16,8 @@ public class DataStreams {
 class WriteAndRead {
     static final String dataFile = "out.txt";
 
-    static final double[] prices = { 19.99, 9.99, 15.99, 3.99, 4.99 };
-    static final int[] units = { 12, 8, 13, 29, 50 };
+    static final double[] prices = {19.99, 9.99, 15.99, 3.99, 4.99};
+    static final int[] units = {12, 8, 13, 29, 50};
     static final String[] descs = {
             "Java T-shirt",
             "Java Mug",
@@ -25,15 +25,16 @@ class WriteAndRead {
             "Java Pin",
             "Java Key Chain"
     };
+
     public static void main() throws IOException {
         DataOutputStream out =
                 new DataOutputStream(
-                    new BufferedOutputStream(
-                        new FileOutputStream(dataFile)
-                    )
+                        new BufferedOutputStream(
+                                new FileOutputStream(dataFile)
+                        )
                 );
 
-        for (int i = 0; i < prices.length; i ++) {
+        for (int i = 0; i < prices.length; i++) {
             out.writeDouble(prices[i]);
             out.writeInt(units[i]);
             out.writeUTF(descs[i]);
@@ -41,9 +42,9 @@ class WriteAndRead {
 
         DataInputStream in =
                 new DataInputStream(
-                    new BufferedInputStream(
-                        new FileInputStream(dataFile)
-                    )
+                        new BufferedInputStream(
+                                new FileInputStream(dataFile)
+                        )
                 );
 
         double price;

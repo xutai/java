@@ -31,6 +31,7 @@ public class LocalClassesAreSimilarToInnerClasses {
             /* A local class can have static members provided that they are constant variables.  */
             /* A constant variable is a variable of primitive type or type String that is declared final and initialized with a compile-time constant expression.  */
             public static final String farewell = "Bye bye";
+
             public void sayGoodbye() {
                 System.out.println(farewell);
             }

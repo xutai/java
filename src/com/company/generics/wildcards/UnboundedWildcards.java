@@ -5,15 +5,17 @@ import java.util.List;
 
 public class UnboundedWildcards {
     public static void printList(List<Object> list) {
-        for (Object elem: list)
+        for (Object elem : list)
             System.out.println(elem + " ");
         System.out.println();
     }
+
     public static void printList2(List<?> list) {
-        for (Object elem: list)
+        for (Object elem : list)
             System.out.println(elem + " ");
         System.out.println();
     }
+
     public static void handleList() {
         List<Object> list1 = Arrays.asList(new Object(), new String());
         List<String> list2 = Arrays.asList(new String(), new String());
@@ -32,6 +34,7 @@ public class UnboundedWildcards {
         printList2(list8);
 
     }
+
     public static void main(String[] args) {
         handleList();
     }

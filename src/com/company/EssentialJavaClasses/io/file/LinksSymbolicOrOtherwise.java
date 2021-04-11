@@ -21,6 +21,7 @@ public class LinksSymbolicOrOtherwise {
 class CreatingASymbolicLink {
     static final String link = "@";
     static final String targetS = "src";
+
     public static void main() {
         Path newLink = Paths.get(link);
         Path target = Paths.get(targetS);
@@ -38,6 +39,7 @@ class CreatingASymbolicLink {
 class CreatingAHardLink {
     static final String link = "@";
     static final String targetS = "out";
+
     public static void main() {
         Path newLink = Paths.get(link);
         Path existingFile = Paths.get(targetS);
@@ -57,6 +59,7 @@ class CreatingAHardLink {
 class DetectingASymbolicLink {
     static final String link = "@";
     static final String targetS = "out";
+
     public static void main() {
         Path newLink = Paths.get(link);
         Path target = Paths.get(targetS);
@@ -69,6 +72,7 @@ class DetectingASymbolicLink {
 class FindingTheTargetOfALink {
     static final String linkS = "@";
     static final String targetS = "out";
+
     public static void main() {
         Path link = Paths.get(linkS);
         Path target = Paths.get(targetS);

@@ -15,7 +15,7 @@ public class ObjectStreams {
 class WriteAndReadObject {
     static final String dataFile = "out.txt";
 
-    public static void main() throws  IOException, ClassNotFoundException {
+    public static void main() throws IOException, ClassNotFoundException {
         ObjectOutputStream out =
                 new ObjectOutputStream(
                         new BufferedOutputStream(

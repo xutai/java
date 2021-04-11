@@ -16,24 +16,24 @@ public class LocalClassExample {
 
         /* non-static nested class: inner class: local class */
         /*
-        * Local classes are classes that are defined in a block,
-        * which is a group of zero or more statements between balanced braces.
-        * You typically find local classes defined in the body of a method.
-        * */
+         * Local classes are classes that are defined in a block,
+         * which is a group of zero or more statements between balanced braces.
+         * You typically find local classes defined in the body of a method.
+         * */
         class PhoneNumber {
 
             String formattedPhoneNumber = null;
 
             /* constructor */
-            PhoneNumber(String phoneNumber){
+            PhoneNumber(String phoneNumber) {
                 /* "local variables referenced from an inner class must be final or effectively final"  */
                 // numberLength = 7;
                 String currentNumber = phoneNumber.replaceAll(
                         regularExpression, "");
                 /*
-                * a local class can only access local variables that are declared final.
-                * When a local class accesses a local variable or parameter of the enclosing block, it captures that variable or parameter.
-                * */
+                 * a local class can only access local variables that are declared final.
+                 * When a local class accesses a local variable or parameter of the enclosing block, it captures that variable or parameter.
+                 * */
                 if (currentNumber.length() == numberLength)
                     formattedPhoneNumber = currentNumber;
                 else
@@ -48,7 +48,7 @@ public class LocalClassExample {
 
             public void printOriginalNumbers() {
                 System.out.println("Original numbers are " + phoneNumber1 +
-                    " and " + phoneNumber2);
+                        " and " + phoneNumber2);
             }
         }
 

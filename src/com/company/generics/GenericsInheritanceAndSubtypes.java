@@ -2,17 +2,24 @@ package com.company.generics;
 
 public class GenericsInheritanceAndSubtypes {
     public void someMethod(Number n) { /* */ }
+
     public class Box<T> {
-        public Box() {}
-        public void add(T t) {}
+        public Box() {
+        }
+
+        public void add(T t) {
+        }
     }
-    public void boxTest(Box<Number> n) {}
+
+    public void boxTest(Box<Number> n) {
+    }
+
     public static void main(String[] args) {
         Object someObject = new Object();
         Integer someInteger = new Integer(10);
         /*
-        * "is a" relationship
-        * an Integer is a kind of Object */
+         * "is a" relationship
+         * an Integer is a kind of Object */
         someObject = someInteger;
 
         GenericsInheritanceAndSubtypes gis = new GenericsInheritanceAndSubtypes();

@@ -17,6 +17,7 @@ public class ChainedExceptions {
             System.err.println("SampleException: " + e);
         }
     }
+
     private static void writeList() throws SampleException {
         PrintWriter out = null;
 
@@ -37,15 +38,16 @@ public class ChainedExceptions {
             FileReader fr = new FileReader("whatevers.txt");
             char[] a = new char[10];
             fr.read(a);
-            for (char c: a) {
+            for (char c : a) {
                 System.err.println(c);
             }
             fr.close();
         } catch (IOException e) {
-            System.err.println("caught IOException: " + e );
+            System.err.println("caught IOException: " + e);
             throw new SampleException(e);
         }
     }
+
     private static void accessingStackTraceInformation() {
         try {
             FileReader fr = new FileReader("whatevers.txt");
@@ -59,6 +61,7 @@ public class ChainedExceptions {
             }
         }
     }
+
     private static void tryWriteList() {
         try {
             writeList();
@@ -66,6 +69,7 @@ public class ChainedExceptions {
             System.err.println("caught SampleException: " + e);
         }
     }
+
     private static void loggingAPI() {
         try {
             Handler handler = new FileHandler("OutFile.log");
@@ -80,6 +84,7 @@ public class ChainedExceptions {
             }
         }
     }
+
     public static void main(String[] args) {
 //        accessingStackTraceInformation();
         loggingAPI();

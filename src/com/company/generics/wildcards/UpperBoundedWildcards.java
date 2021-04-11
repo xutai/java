@@ -13,6 +13,7 @@ public class UpperBoundedWildcards {
             s += n.doubleValue();
         return s;
     }
+
     public static void calc() {
         List<Integer> li = Arrays.asList(1, 2, 3);
         System.out.println("sum = " + sumOfList(li));
@@ -26,13 +27,18 @@ public class UpperBoundedWildcards {
     }
 
     /* foo bar example */
-    static class Foo {}
-    static class Bar extends Foo {}
+    static class Foo {
+    }
+
+    static class Bar extends Foo {
+    }
+
     public static void process(List<? extends Foo> list) {
-        for (Foo elem: list) {
+        for (Foo elem : list) {
 
         }
     }
+
     public static void operate() {
         List<Foo> fooList = Arrays.asList(new Foo(), new Foo());
         List<Foo> barList = Arrays.asList(new Bar(), new Bar());

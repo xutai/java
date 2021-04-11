@@ -1,7 +1,7 @@
 package com.company.generics;
 
 public class GenericMethodsAndBoundedTypeParameters {
-//    public static <T> int countGreaterThan(T[] anArray, T elem) {
+    //    public static <T> int countGreaterThan(T[] anArray, T elem) {
 //        int count = 0;
 //        for (T e : anArray)
 ////            if (e > elem)  // compiler error
@@ -11,6 +11,7 @@ public class GenericMethodsAndBoundedTypeParameters {
     public interface Comparable<T> {
         public int compareTo(T o);
     }
+
     public static <T extends Comparable<T>> int countGreaterThan(T[] anArray, T elem) {
         int count = 0;
         for (T e : anArray)

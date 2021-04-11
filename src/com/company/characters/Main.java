@@ -2,12 +2,19 @@ package com.company.characters;
 
 abstract class chars {
     abstract boolean isLetter(char ch);
+
     abstract boolean isDigit(char ch);
+
     abstract boolean isWhitespace(char ch);
+
     abstract boolean isUpperCase(char ch);
+
     abstract boolean isLowerCase(char ch);
+
     abstract char toUpperCase(char ch);
+
     abstract char toLowerCase(char ch);
+
     abstract String toString(char ch);
 }
 
@@ -26,17 +33,54 @@ abstract class charsExtended extends chars {
 }
 
 class charsExtendedFinal extends charsExtended {
-    boolean isLetter(char ch){
+    boolean isLetter(char ch) {
         System.out.println(Character.isLetter(ch));
         return Character.isLetter(ch);
-    };
-    boolean isDigit(char ch){ return true; };
-    boolean isWhitespace(char ch){ return true; };
-    boolean isUpperCase(char ch){ return true; };
-    boolean isLowerCase(char ch){ return true; };
-    char toUpperCase(char ch){ return 's'; };
-    char toLowerCase(char ch){ return 's'; };
-    String toString(char ch){ return Character.toString(ch); };
+    }
+
+    ;
+
+    boolean isDigit(char ch) {
+        return true;
+    }
+
+    ;
+
+    boolean isWhitespace(char ch) {
+        return true;
+    }
+
+    ;
+
+    boolean isUpperCase(char ch) {
+        return true;
+    }
+
+    ;
+
+    boolean isLowerCase(char ch) {
+        return true;
+    }
+
+    ;
+
+    char toUpperCase(char ch) {
+        return 's';
+    }
+
+    ;
+
+    char toLowerCase(char ch) {
+        return 's';
+    }
+
+    ;
+
+    String toString(char ch) {
+        return Character.toString(ch);
+    }
+
+    ;
 }
 
 public class Main {
@@ -46,7 +90,7 @@ public class Main {
         // Unicode for uppercase Greek omega character
         char uniChar = '\u03A9';
         // an array of chars
-        char[] charArray = { 'a', 'b', 'c', 'd', 'e' };
+        char[] charArray = {'a', 'b', 'c', 'd', 'e'};
         Character ch1 = new Character('a');
         charsExtended ce = new charsExtendedFinal();
         ce.isLetter(ch);

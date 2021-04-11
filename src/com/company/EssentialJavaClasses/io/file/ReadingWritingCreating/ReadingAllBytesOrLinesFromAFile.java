@@ -22,7 +22,7 @@ class ReadingAllBytesOrLinesFromAFileClass {
         Path file = Paths.get(dataFile);
         byte[] fileArray;
         fileArray = Files.readAllBytes(file);
-        for (byte b: fileArray) {
+        for (byte b : fileArray) {
             System.out.printf("%s%n", b);
         }
     }

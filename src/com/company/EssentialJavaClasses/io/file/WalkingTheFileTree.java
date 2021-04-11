@@ -26,7 +26,7 @@ public class WalkingTheFileTree {
         }
     }
 
-    public static void KickstartingTheProcess() throws Exception{
+    public static void KickstartingTheProcess() throws Exception {
         /* Kickstarting the Process */
 //        PrintFiles pf = new PrintFiles();
 //        Files.walkFileTree(startingDir, pf);
@@ -35,7 +35,7 @@ public class WalkingTheFileTree {
         EnumSet<FileVisitOption> opts = EnumSet.of(FOLLOW_LINKS);
 //        Finder finder = new Finder(pattern);
 //         PrintFiles pf = new PrintFiles();
-         PrintFiles fileVisitor = new PrintFiles();
+        PrintFiles fileVisitor = new PrintFiles();
         Files.walkFileTree(startingDir, opts, Integer.MAX_VALUE, fileVisitor);
     }
 
@@ -72,8 +72,6 @@ public class WalkingTheFileTree {
         }
 
 
-
-
         // Print each directory visited.
 //        @Override
 //        public FileVisitResult postVisitDirectory(Path dir,
@@ -91,7 +89,6 @@ public class WalkingTheFileTree {
             }
             return CONTINUE;
         }
-
 
 
         // If there is some error accessing
@@ -122,7 +119,6 @@ public class WalkingTheFileTree {
             }
             return CONTINUE;
         }
-
 
 
     }

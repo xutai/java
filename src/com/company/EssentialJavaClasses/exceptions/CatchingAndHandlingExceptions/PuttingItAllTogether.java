@@ -25,17 +25,16 @@ public class PuttingItAllTogether {
             }
         } catch (IndexOutOfBoundsException e) {
             System.err.println("Caught IndexOutOfBoundsException: "
-                    +  e.getMessage());
+                    + e.getMessage());
 
         } catch (IOException e) {
-            System.err.println("Caught IOException: " +  e.getMessage());
+            System.err.println("Caught IOException: " + e.getMessage());
 
         } finally {
             if (out != null) {
                 System.out.println("Closing PrintWriter");
                 out.close();
-            }
-            else {
+            } else {
                 System.out.println("PrintWriter not open");
             }
         }

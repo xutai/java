@@ -14,17 +14,17 @@ public class Main {
                 obj.getClass().getInterfaces());
         System.out.println("The object's" + " class name is " +
                 obj.getClass().getSimpleName());
-         Class c = obj.getClass();
+        Class c = obj.getClass();
         System.out.println(
                 c.isAnnotation() + " " +
-                c.isInterface()  + " " +
-                c.getFields()  + " " +
-                c.getMethods()
+                        c.isInterface() + " " +
+                        c.getFields() + " " +
+                        c.getMethods()
         );
     }
 
     public static void main(String[] args) {
-	    // write your code here
+        // write your code here
 //        System.out.println("1");
 //
 //        int computer = 0;
@@ -33,6 +33,6 @@ public class Main {
 //        lc.sayGoodbyeInEnglish();
 
         /* The getClass() Method */
-        printClassName(new Bicycle(1,2,3));
+        printClassName(new Bicycle(1, 2, 3));
     }
 }

@@ -26,7 +26,7 @@ public class CreatingAndReadingDirectories {
 class ListingAFileSystemsRootDirectories {
     public static void main() {
         Iterable<Path> dirs = FileSystems.getDefault().getRootDirectories();
-        for (Path name: dirs) {
+        for (Path name : dirs) {
             System.err.println(name);
         }
     }
@@ -51,8 +51,7 @@ class CreatingADirectory {
 
 class CreatingATemporaryDirectory {
     public static void main()
-            throws IllegalArgumentException, UnsupportedOperationException, IOException
-    {
+            throws IllegalArgumentException, UnsupportedOperationException, IOException {
         /* D:/ */
 //        Path dir = Paths.get("/");
         /* D:/java */
@@ -63,15 +62,13 @@ class CreatingATemporaryDirectory {
 }
 
 class ListingADirectorysContents {
-    public static void main()
-    {
+    public static void main() {
         Path dir = Paths.get("");
         try (DirectoryStream<Path> stream =
-            Files.newDirectoryStream(dir))
-        {
-          for (Path file: stream) {
-              System.out.print(file.getFileName() + " ");
-          }
+                     Files.newDirectoryStream(dir)) {
+            for (Path file : stream) {
+                System.out.print(file.getFileName() + " ");
+            }
         } catch (IOException | DirectoryIteratorException x) {
             // IOException can never be thrown by the iteration.
             // In this snippet, it can only be thrown by newDirectoryStream.
@@ -80,13 +77,12 @@ class ListingADirectorysContents {
     }
 }
 
-class FilteringADirectoryListingByUsingGlobbing{
-    public static void main()
-    {
+class FilteringADirectoryListingByUsingGlobbing {
+    public static void main() {
         Path dir = Paths.get("");
         try (DirectoryStream<Path> stream =
                      Files.newDirectoryStream(dir, "*.{java,class,jar,txt}")) {
-            for (Path entry: stream) {
+            for (Path entry : stream) {
                 System.out.println(entry.getFileName());
             }
         } catch (IOException x) {
@@ -97,11 +93,11 @@ class FilteringADirectoryListingByUsingGlobbing{
     }
 }
 
-class newDirectoryStream  {
+class newDirectoryStream {
     static final Path path = Paths.get("");
 
-   abstract static class Filter implements DirectoryStream.Filter{
-//       @Override
+    abstract static class Filter implements DirectoryStream.Filter {
+        //       @Override
         public boolean accept(Object file) {
             System.err.println("3");
             try {
@@ -112,19 +108,21 @@ class newDirectoryStream  {
                 return false;
             }
         }
-    };;
+    }
+
+    ;;
 }
 
-class WritingYourOwnDirectoryFilter{
+class WritingYourOwnDirectoryFilter {
     static final Path file = Paths.get("");
     static final Path path = Paths.get("");
     static final Path dir = Paths.get("");
 
-    public static void main()
-    {
+    public static void main() {
 
         DirectoryStream.Filter<Path> filter = new newDirectoryStream.Filter() {
             final Path path = Paths.get("");
+
             @Override
             public boolean accept(Object file) {
                 System.err.println("1");
@@ -143,7 +141,7 @@ class WritingYourOwnDirectoryFilter{
 
         try (DirectoryStream<Path>
                      stream = Files.newDirectoryStream(dir, filter)) {
-            for (Path entry: stream) {
+            for (Path entry : stream) {
                 System.out.println(entry.getFileName());
             }
         } catch (IOException x) {

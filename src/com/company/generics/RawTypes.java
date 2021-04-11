@@ -4,19 +4,23 @@ import javax.swing.*;
 
 
 /*
-* Raw Types
-* Unchecked Error Messages
-* */
+ * Raw Types
+ * Unchecked Error Messages
+ * */
 
 class Box<T> {
     private T i;
+
     public void set(T t) {
         i = t;
     }
 }
+
 class RawTypes {
 
-    class WarningDemo {}
+    class WarningDemo {
+    }
+
     public static void main(String[] args) {
         /* 1 no warning */
         Box<String> stringBox = new Box<>();
@@ -30,6 +34,7 @@ class RawTypes {
         Box<Integer> bi;
         bi = createBox();
     }
+
     @SuppressWarnings(value = "unchecked")
     static Box createBox() {
         return new Box();

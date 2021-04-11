@@ -6,13 +6,13 @@ import java.util.List;
 import java.util.ArrayList;
 
 
-
 public class CatchingAndHandlingExceptions {
     static void lnHandler() {
         ListOfNumbers ln = new ListOfNumbers();
     }
+
     public static void main(String[] args) {
-       lnHandler();
+        lnHandler();
     }
 }
 
@@ -21,7 +21,7 @@ class ListOfNumbers {
     private List<Integer> list;
     private static final int SIZE = 10;
 
-    public ListOfNumbers () {
+    public ListOfNumbers() {
         list = new ArrayList<Integer>(SIZE);
         for (int i = 0; i < SIZE; i++) {
             list.add(new Integer(i));

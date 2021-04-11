@@ -26,19 +26,17 @@ class ReadingAFileByUsingStreamIOClass {
 
     public static void main() {
         try (
-            InputStream in = Files.newInputStream(file);
-            BufferedReader reader =
-                new BufferedReader(
-                        new InputStreamReader(in)
-                )
-            )
-        {
+                InputStream in = Files.newInputStream(file);
+                BufferedReader reader =
+                        new BufferedReader(
+                                new InputStreamReader(in)
+                        )
+        ) {
             String line = null;
             while
             (
-                (line = reader.readLine()) != null
-            )
-            {
+                    (line = reader.readLine()) != null
+            ) {
                 System.out.println(line);
             }
         } catch (IOException x) {

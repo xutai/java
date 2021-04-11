@@ -27,14 +27,14 @@ public class MountainBike extends Bicycle {
             int startCadence,
             int startSpeed,
             int startGear,
-            String suspensionType){
+            String suspensionType) {
         super(startCadence,
                 startSpeed,
                 startGear);
         this.setSuspension(suspensionType);
     }
 
-    public String getSuspension(){
+    public String getSuspension() {
         return this.suspension;
     }
 
@@ -49,7 +49,7 @@ public class MountainBike extends Bicycle {
     }
 
     public static void main(String[] args) {
-        MountainBike mb = new MountainBike(1,2,3, "some");
+        MountainBike mb = new MountainBike(1, 2, 3, "some");
         mb.printDescription();
     }
 }

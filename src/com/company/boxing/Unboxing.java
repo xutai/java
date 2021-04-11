@@ -14,6 +14,7 @@ class Boxing {
                 sum += i.intValue();
         return sum;
     }
+
     public static void main(String[] args) {
         List<Integer> li = new ArrayList<>();
         for (int i = 1; i < 50; i += 2) {

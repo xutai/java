@@ -54,9 +54,9 @@ class ReadingAndWritingFilesByUsingChannelIOClass {
 }
 
 /*
-* main, caught error:java.lang.UnsupportedOperationException:
-* 'posix:permissions' not supported as initial attribute
-* */
+ * main, caught error:java.lang.UnsupportedOperationException:
+ * 'posix:permissions' not supported as initial attribute
+ * */
 
 class LogFilePermissionsTest {
 

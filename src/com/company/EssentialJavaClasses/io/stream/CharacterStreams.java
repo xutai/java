@@ -29,7 +29,7 @@ class copyCharacters {
                 outputStream.write(c);
             }
         } finally {
-            if (inputStream  != null) {
+            if (inputStream != null) {
                 inputStream.close();
             }
             if (outputStream != null) {
@@ -51,7 +51,7 @@ class copyLines {
                 outputStream.println(l);
             }
         } finally {
-            if (inputStream  != null) {
+            if (inputStream != null) {
                 inputStream.close();
             }
             if (outputStream != null) {

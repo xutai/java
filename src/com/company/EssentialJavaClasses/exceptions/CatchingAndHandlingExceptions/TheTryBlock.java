@@ -16,13 +16,13 @@ public class TheTryBlock {
             for (int i = 0; i < SIZE; i++) {
                 out.println("Value at: " + i + " = " + list.get(i));
             }
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             System.out.printf("%s", e);
         } finally {
 
         }
     }
+
     public static void main(String[] args) {
         new TheTryBlock().writeList();
     }

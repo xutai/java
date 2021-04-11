@@ -24,9 +24,9 @@ public class FindingFiles {
 }
 
 /*
-* λ echo %CLASSPATH%
-* D:\java;.;D:\java\out\production\java;
-* */
+ * λ echo %CLASSPATH%
+ * D:\java;.;D:\java\out\production\java;
+ * */
 /* java FindingFiles -name "*.txt" */
 /* java com.company.EssentialJavaClasses.io.file.FindingFiles */
 /* java RecursivePatternMatching . -name "*.java" */
