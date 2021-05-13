@@ -39,6 +39,7 @@ class Freq {
     public static void useHashMap(String[] args) {
         Map<String, Integer> m = new HashMap<String, Integer>();
 
+
         // Initialize frequency table from command line
         duplicateCode(args, m);
     }
